@@ -1,6 +1,9 @@
-equipment_name,type,flowrate,pressure,temperature
-Pump A,Pump,120,30,75
-Valve B,Valve,80,20,60
-Pump C,Pump,150,35,85
-Sensor D,Sensor,40,10,25
-Valve E,Valve,90,22,65
+Product_Name,Category,Price,Quantity_In_Stock,Supplier_Name,Phone,Street,City,State,Pincode
+Basmati Rice,Grains,95.00,500,ABC Traders,9876543210,12 Market Road,Chennai,Tamil Nadu,600001
+Organic Milk,Dairy,65.00,150,PureFoods Ltd,9012345678,89 Cross Cut Road,Coimbatore,Tamil Nadu,641012
+Whole Wheat Flour,Grains,55.00,300,ABC Traders,9876543210,12 Market Road,Chennai,Tamil Nadu,600001
+Refined Sugar,Essentials,45.00,200,Global Supplies,9123456780,45 MG Road,Bangalore,Karnataka,560001
+Cold Pressed Oil,Edible Oil,210.00,80,Prime Distro,9988776655,78 Jubilee Hills,Hyderabad,Telangana,500033
+Green Tea Powder,Beverages,350.00,45,DailyNeeds,9123456789,10 Brigade Road,Bangalore,Karnataka,560025
+Multigrain Biscuits,Snacks,40.00,120,Global Supplies,9123456780,45 MG Road,Bangalore,Karnataka,560001
+Herbal Soap,Toiletries,55.00,90,ABC Traders,9876543210,12 Market Road,Chennai,Tamil Nadu,600001
