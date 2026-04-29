@@ -211,7 +211,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'inventorymanagement',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
