@@ -94,27 +94,37 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',  # Changed back to default
-#         'NAME': os.getenv('MYSQLDATABASE'),
-#         'USER': os.getenv('MYSQLUSER'),
-#         'PASSWORD': os.getenv('MYSQLPASSWORD'),
-#         'HOST': os.getenv('MYSQLHOST'),
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.getenv('MYSQLDATABASE', ''),
+#         'USER': os.getenv('MYSQLUSER', ''),
+#         'PASSWORD': os.getenv('MYSQLPASSWORD', ''),
+#         'HOST': os.getenv('MYSQLHOST', ''),
 #         'PORT': os.getenv('MYSQLPORT', '3306'),
 #     }
 # }
 
 import os
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQLDATABASE', ''),
-        'USER': os.getenv('MYSQLUSER', ''),
-        'PASSWORD': os.getenv('MYSQLPASSWORD', ''),
-        'HOST': os.getenv('MYSQLHOST', ''),
-        'PORT': os.getenv('MYSQLPORT', '3306'),
+# Check if we are in the live Railway environment by looking for MYSQLHOST
+if os.getenv('MYSQLHOST'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.getenv('MYSQLDATABASE'),
+            'USER': os.getenv('MYSQLUSER'),
+            'PASSWORD': os.getenv('MYSQLPASSWORD'),
+            'HOST': os.getenv('MYSQLHOST'),
+            'PORT': os.getenv('MYSQLPORT', '3306'),
+        }
     }
-}
+else:
+    # Fallback for local development and Railway's Build phase
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
