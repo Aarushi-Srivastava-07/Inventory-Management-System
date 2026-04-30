@@ -90,6 +90,24 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 #     }
 # }
 
+SILENCED_SYSTEM_CHECKS = ['database.W002']
+
+# import os
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mysql.connector.django',
+#         'NAME': os.getenv('MYSQLDATABASE'),
+#         'USER': os.getenv('MYSQLUSER'),
+#         'PASSWORD': os.getenv('MYSQLPASSWORD'),
+#         'HOST': os.getenv('MYSQLHOST'),
+#         'PORT': os.getenv('MYSQLPORT', '3306'),
+#         'OPTIONS': {
+#             'autocommit': True,
+#             'raise_on_warnings': True,
+#         },
+#     }
+# }
 
 import os
 
@@ -102,8 +120,7 @@ DATABASES = {
         'HOST': os.getenv('MYSQLHOST'),
         'PORT': os.getenv('MYSQLPORT', '3306'),
         'OPTIONS': {
-            'autocommit': True,
-            'raise_on_warnings': True,
+            'use_pure': True,
         },
     }
 }
