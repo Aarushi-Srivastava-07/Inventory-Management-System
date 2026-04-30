@@ -77,20 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'mysql.connector.django',
-#         'NAME': 'inventorymanagement',
-#         'USER': 'root',
-#         'PASSWORD': 'password',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#     }
-# }
 # import os
 
 # DATABASES = {
@@ -100,9 +86,10 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 #         'USER': os.getenv('MYSQLUSER'),
 #         'PASSWORD': os.getenv('MYSQLPASSWORD'),
 #         'HOST': os.getenv('MYSQLHOST'),
-#         'PORT': os.getenv('MYSQLPORT'),
+#         'PORT': os.getenv('MYSQLPORT', '3306'),
 #     }
 # }
+
 
 import os
 
@@ -114,6 +101,10 @@ DATABASES = {
         'PASSWORD': os.getenv('MYSQLPASSWORD'),
         'HOST': os.getenv('MYSQLHOST'),
         'PORT': os.getenv('MYSQLPORT', '3306'),
+        'OPTIONS': {
+            'autocommit': True,
+            'raise_on_warnings': True,
+        },
     }
 }
 
